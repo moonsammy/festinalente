@@ -1,20 +1,180 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Nav from '../components/Nav.astro';
-import Hero from '../components/Hero.astro';
-import About from '../components/About.astro';
-import Academics from '../components/Academics.astro';
-import Athletics from '../components/Athletics.astro';
-import Interests from '../components/Interests.astro';
-import Contact from '../components/Contact.astro';
 ---
 
-<Layout title="James Milner — Festina Lente">
-  <Nav />
-  <Hero />
-  <About />
-  <Academics />
-  <Athletics />
-  <Interests />
-  <Contact />
+<Layout title="Festina Lente">
+  <main class="landing">
+
+    <div class="wordmark fade-in">FL</div>
+
+    <div class="hero-block">
+      <h1 class="phrase fade-in fade-in-delay-1">Festina<br /><em>Lente</em></h1>
+      <p class="definition fade-in fade-in-delay-2">
+        <em>Latin.</em> &ldquo;Make haste slowly.&rdquo;
+      </p>
+      <span class="rule fade-in fade-in-delay-3"></span>
+    </div>
+
+    <div class="origin fade-in fade-in-delay-3">
+      <p>
+        The phrase was a personal maxim of the Emperor Augustus, who believed that
+        the surest path to lasting achievement was disciplined, unhurried deliberation —
+        not the absence of urgency, but its careful direction.
+      </p>
+      <p>
+        In the Renaissance, the Venetian printer Aldus Manutius adopted it as his
+        device: an anchor entwined with a dolphin — anchored to purpose, swift in
+        execution. It became the mark of work built to endure.
+      </p>
+    </div>
+
+    <div class="mission fade-in fade-in-delay-4">
+      <p class="mission-label">What we&rsquo;re building</p>
+      <p class="mission-text">
+        The legal system moves on language, precedent, and argument.
+        We&rsquo;re building AI tools that help legal professionals do all three
+        with greater precision, speed, and confidence — without cutting corners.
+      </p>
+      <p class="mission-text">
+        More soon. Built carefully.
+      </p>
+      <a href="mailto:hello@festinalente.ai" class="cta">
+        hello@festinalente.ai <span class="arrow">&#8594;</span>
+      </a>
+    </div>
+
+    <footer class="landing-footer fade-in">
+      <span class="anchor-dolphin" title="Anchor &amp; Dolphin — Aldus Manutius">&#9875;</span>
+      <p>&copy; 2025 Festina Lente. All rights reserved.</p>
+    </footer>
+
+  </main>
 </Layout>
+
+<style>
+  .landing {
+    min-height: 100vh;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 6rem 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  /* Fade-in animation (mirrors the global one for this standalone page) */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.9s ease forwards;
+  }
+  .fade-in-delay-1 { animation-delay: 0.15s; }
+  .fade-in-delay-2 { animation-delay: 0.3s; }
+  .fade-in-delay-3 { animation-delay: 0.5s; }
+  .fade-in-delay-4 { animation-delay: 0.75s; }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+  }
+
+  .hero-block { display: flex; flex-direction: column; }
+
+  .phrase {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(4rem, 12vw, 8rem);
+    font-weight: 300;
+    line-height: 1.0;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+  .phrase em { font-style: italic; color: var(--gold-light); }
+
+  .definition {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    margin-bottom: 2rem;
+  }
+  .definition em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--cream);
+    font-size: 1.05em;
+  }
+
+  .rule {
+    display: block;
+    width: 48px;
+    height: 2px;
+    background: var(--gold);
+  }
+
+  .origin {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    border-left: 2px solid rgba(201,168,76,0.2);
+    padding-left: 1.75rem;
+  }
+  .origin p {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: rgba(245,240,232,0.65);
+  }
+
+  .mission { display: flex; flex-direction: column; gap: 1rem; }
+  .mission-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.25rem;
+  }
+  .mission-text {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: rgba(245,240,232,0.8);
+  }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--gold-light);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+    padding-bottom: 0.2rem;
+    width: fit-content;
+    transition: color 0.2s ease;
+  }
+  .cta:hover { color: var(--cream); }
+  .arrow { transition: transform 0.2s ease; }
+  .cta:hover .arrow { transform: translateX(4px); }
+
+  .landing-footer {
+    margin-top: auto;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(201,168,76,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .anchor-dolphin { font-size: 1.4rem; opacity: 0.4; }
+  .landing-footer p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    opacity: 0.5;
+  }
+</style>
