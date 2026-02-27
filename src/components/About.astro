@@ -1,0 +1,83 @@
+---
+---
+<div class="section-divider"></div>
+<section id="about">
+  <div class="about-grid">
+    <div class="about-left fade-in">
+      <p class="section-label">About</p>
+      <h2 class="section-title">A Mind Built<br /><em>for the Long Game</em></h2>
+      <span class="gold-line"></span>
+    </div>
+    <div class="about-right">
+      <p class="about-body fade-in fade-in-delay-1">
+        I'm a junior at Plymouth North High School in Plymouth, Massachusetts — a student
+        who takes academics seriously, competes on the track, and thinks carefully about
+        where I'm headed. I believe in doing things well and doing them with purpose.
+      </p>
+      <p class="about-body fade-in fade-in-delay-2">
+        The phrase <em>festina lente</em> — "make haste slowly" — has become something of a
+        personal motto. It captures the way I approach everything: with urgency and patience
+        in equal measure. Whether it's preparing for an AP exam, training for a race, or
+        thinking through a complex problem, I believe the best results come from sustained,
+        deliberate effort.
+      </p>
+      <p class="about-body fade-in fade-in-delay-3">
+        I'm looking ahead to a future in law — drawn to the intersection of argument,
+        history, and justice. I don't know exactly what that path looks like yet,
+        but I'm building the foundation one day at a time.
+      </p>
+      <div class="about-stats fade-in fade-in-delay-4">
+        <div class="stat">
+          <span class="stat-number">4.6</span>
+          <span class="stat-label">Weighted GPA</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">NHS</span>
+          <span class="stat-label">Member</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">&#x26A1;</span>
+          <span class="stat-label">Track Athlete</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-grid {
+  display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start;
+  padding-left: 2rem;
+  }
+  .about-left { position: sticky; top: 8rem; }
+  .about-left .section-title em { font-style: italic; color: var(--gold-light); }
+  .about-body {
+    font-size: 1rem; line-height: 1.9;
+    color: rgba(245,240,232,0.75); margin-bottom: 1.5rem;
+  }
+  .about-body em {
+    color: var(--cream); font-style: italic;
+    font-family: 'Cormorant Garamond', serif; font-size: 1.1em;
+  }
+  .about-stats {
+    display: flex; align-items: center; gap: 2rem;
+    margin-top: 3rem; padding-top: 2rem;
+    border-top: 1px solid rgba(201,168,76,0.15);
+  }
+  .stat { display: flex; flex-direction: column; gap: 0.25rem; }
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 300; color: var(--gold-light); line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.65rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--text-muted);
+  }
+  .stat-divider { width: 1px; height: 40px; background: rgba(201,168,76,0.2); }
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .about-left { position: static; }
+  }
+</style>

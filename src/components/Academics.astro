@@ -1,0 +1,125 @@
+---
+const apCourses = [
+  { name: "AP Computer Science", status: "Completed", score: "5" },
+  { name: "AP Physics", status: "In Progress" },
+  { name: "AP Pre-Calculus", status: "In Progress" },
+  { name: "AP US History", status: "In Progress" },
+  { name: "AP English Language & Composition", status: "In Progress" },
+  { name: "AP Statistics", status: "In Progress" },
+];
+---
+<div class="section-divider"></div>
+<section id="academics" class="academics-section">
+  <div style="padding-left: 2rem;">
+    <p class="section-label fade-in">Academics</p>
+    <h2 class="section-title fade-in fade-in-delay-1">Rigorous by<br /><em>Choice</em></h2>
+    <span class="gold-line fade-in fade-in-delay-2"></span>
+  </div>
+  <div class="academics-grid">
+    <div class="academics-overview fade-in fade-in-delay-2">
+      <div class="card overview-card">
+        <div class="overview-gpa">
+          <span class="gpa-number">4.6</span>
+          <span class="gpa-label">Weighted GPA</span>
+        </div>
+        <div class="honor-badge">
+          <span class="honor-icon">&#9670;</span>
+          <div>
+            <strong>National Honor Society</strong>
+            <p>Recognized for scholarship, leadership, service, and character.</p>
+          </div>
+        </div>
+        <div class="honor-badge">
+          <span class="honor-icon">&#9670;</span>
+          <div>
+            <strong>Foreign Language Honor Society</strong>
+            <p>Member for two years, honoring excellence in language study.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ap-courses fade-in fade-in-delay-3">
+      <h3 class="courses-heading">Advanced Placement Coursework</h3>
+      <ul class="course-list">
+        {apCourses.map((course) => (
+          <li class="course-item">
+            <span class="course-dot"></span>
+            <span class="course-name">{course.name}</span>
+            {course.score && (
+              <span class="course-score">Score: {course.score}</span>
+            )}
+            <span class={`course-status ${course.status === 'Completed' ? 'status-done' : 'status-active'}`}>
+              {course.status}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <p class="courses-note">Additional AP coursework planned for senior year.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .academics-section {
+    background: linear-gradient(180deg, transparent 0%, rgba(26,46,71,0.3) 50%, transparent 100%);
+  }
+  .academics-grid {
+    display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; margin-top: 3rem; align-items: start;
+    padding-left: 2rem;
+  }
+  .overview-card { display: flex; flex-direction: column; gap: 2rem; }
+  .overview-gpa {
+    display: flex; flex-direction: column; align-items: center; padding: 2rem;
+    background: rgba(201,168,76,0.05); border-radius: 4px;
+    border: 1px solid rgba(201,168,76,0.2);
+  }
+  .gpa-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4.5rem; font-weight: 300; color: var(--gold-light); line-height: 1;
+  }
+  .gpa-label {
+    font-size: 0.65rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--text-muted); margin-top: 0.5rem;
+  }
+  .honor-badge { display: flex; gap: 1rem; align-items: flex-start; }
+  .honor-icon { color: var(--gold); font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+  .honor-badge strong {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
+    font-weight: 600; color: var(--cream); display: block; margin-bottom: 0.4rem;
+  }
+  .honor-badge p { font-size: 0.85rem; line-height: 1.6; color: var(--text-muted); }
+  .courses-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 400; color: var(--cream); margin-bottom: 1.5rem;
+  }
+  .course-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+  .course-item {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 0.875rem 1.25rem; background: var(--navy-mid);
+    border-radius: 3px; border-left: 2px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+  .course-item:hover { border-left-color: var(--gold); }
+  .course-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  .course-name { flex: 1; font-size: 0.9rem; color: var(--cream); opacity: 0.85; }
+  .course-status {
+    font-size: 0.65rem; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 2px;
+  }
+  .status-done {
+    background: rgba(201,168,76,0.1); color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.2);
+  }
+  .status-active {
+    background: rgba(138,154,176,0.1); color: var(--text-muted);
+    border: 1px solid rgba(138,154,176,0.2);
+  }
+  .course-score {
+    font-size: 0.65rem; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 2px;
+    background: rgba(76,175,80,0.1); color: #81c784;
+    border: 1px solid rgba(76,175,80,0.25);
+  }
+  .courses-note { margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); font-style: italic; }
+  @media (max-width: 768px) { .academics-grid { grid-template-columns: 1fr; } }
+</style>

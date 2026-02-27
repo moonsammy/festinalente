@@ -1,0 +1,115 @@
+---
+---
+<div class="section-divider"></div>
+<section id="athletics">
+  <div class="athletics-inner">
+    <div class="athletics-left fade-in">
+      <p class="section-label">Athletics</p>
+      <h2 class="section-title">Competing with<br /><em>Purpose</em></h2>
+      <span class="gold-line"></span>
+      <p class="athletics-body">
+        Three years of track — winter and spring — have taught me things no classroom
+        can: how to push through discomfort, how to trust your training, and how to
+        compete with both intensity and control. Every race is a negotiation between
+        effort and strategy.
+      </p>
+      <p class="athletics-body">
+        Soccer added a different dimension — the rhythm of a team, reading the game,
+        and learning how to compete in a completely different way. Balancing multiple
+        sports with a rigorous academic schedule has sharpened my time management
+        and built a resilience that carries over into everything I do.
+      </p>
+    </div>
+    <div class="athletics-right fade-in fade-in-delay-2">
+      <div class="sport-card card">
+        <div class="sport-card-header">
+          <div class="track-icon">&#9889;</div>
+          <div>
+            <h3>Track & Field</h3>
+            <p class="school-label">Plymouth North High School</p>
+          </div>
+        </div>
+        <div class="sport-attributes">
+          <div class="attribute">
+            <span class="attribute-label">Seasons</span>
+            <span class="attribute-value">Winter & Spring</span>
+          </div>
+          <div class="attribute">
+            <span class="attribute-label">Years</span>
+            <span class="attribute-value">Freshman — Present</span>
+          </div>
+        </div>
+      </div>
+      <div class="sport-card card fade-in fade-in-delay-3">
+        <div class="sport-card-header">
+          <div class="track-icon">&#9917;</div>
+          <div>
+            <h3>Soccer</h3>
+            <p class="school-label">Plymouth North High School</p>
+          </div>
+        </div>
+        <div class="sport-attributes">
+          <div class="attribute">
+            <span class="attribute-label">Season</span>
+            <span class="attribute-value">Fall</span>
+          </div>
+          <div class="attribute">
+            <span class="attribute-label">Level</span>
+            <span class="attribute-value">Freshman / JV</span>
+          </div>
+        </div>
+      </div>
+      <div class="athletics-quote fade-in fade-in-delay-4">
+        <blockquote>"The will to win means nothing without the will to prepare."</blockquote>
+        <cite>— Juma Ikangaa</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .athletics-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
+    padding-left: 2rem;
+  }
+  .athletics-body {
+    font-size: 1rem; line-height: 1.9;
+    color: rgba(245,240,232,0.75); margin-bottom: 1.5rem;
+  }
+  .athletics-right { display: flex; flex-direction: column; gap: 1.5rem; }
+  .sport-card { padding: 1.5rem 2rem; }
+  .sport-card-header { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.25rem; }
+  .track-icon { font-size: 2rem; flex-shrink: 0; }
+  .sport-card-header h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 400; color: var(--cream); margin-bottom: 0.15rem;
+  }
+  .school-label {
+    font-size: 0.75rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--text-muted);
+  }
+  .sport-attributes {
+    display: flex; gap: 3rem;
+    padding-top: 1.25rem; border-top: 1px solid rgba(201,168,76,0.15);
+  }
+  .attribute { display: flex; flex-direction: column; gap: 0.3rem; }
+  .attribute-label {
+    font-size: 0.6rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--text-muted);
+  }
+  .attribute-value { font-size: 0.85rem; color: var(--cream); }
+  .athletics-quote {
+    padding: 1.5rem 2rem;
+    border-left: 2px solid var(--gold);
+    background: rgba(201,168,76,0.04);
+  }
+  .athletics-quote blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-style: italic;
+    color: var(--cream); line-height: 1.6; margin-bottom: 0.75rem;
+  }
+  .athletics-quote cite { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.1em; }
+  @media (max-width: 768px) {
+    .athletics-inner { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>

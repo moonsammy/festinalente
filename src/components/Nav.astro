@@ -1,0 +1,78 @@
+---
+---
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">JM</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#academics">Academics</a></li>
+      <li><a href="#athletics">Athletics</a></li>
+      <li><a href="#interests">Interests</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+  </div>
+</nav>
+
+<style>
+  #nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.5rem 2rem;
+    transition: background 0.4s ease, padding 0.4s ease;
+  }
+  #nav.scrolled {
+    background: rgba(15, 28, 46, 0.95);
+    backdrop-filter: blur(12px);
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+  }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 600;
+    color: var(--gold); text-decoration: none; letter-spacing: 0.05em;
+  }
+  .nav-links {
+    display: flex; align-items: center; gap: 2.5rem; list-style: none;
+  }
+  .nav-links a {
+    color: var(--cream); text-decoration: none;
+    font-size: 0.8rem; font-weight: 400;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    opacity: 0.8; transition: opacity 0.2s ease, color 0.2s ease;
+  }
+  .nav-links a:hover { opacity: 1; color: var(--gold-light); }
+  .nav-cta {
+    border: 1px solid var(--gold) !important;
+    padding: 0.4rem 1rem !important; border-radius: 2px;
+    opacity: 1 !important; color: var(--gold) !important;
+  }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--navy) !important; }
+  .nav-toggle {
+    display: none; background: none; border: none;
+    color: var(--cream); font-size: 1.5rem; cursor: pointer;
+  }
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      background: rgba(15, 28, 46, 0.98);
+      flex-direction: column; padding: 2rem; gap: 1.5rem;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+    }
+    .nav-links.open { display: flex; }
+    .nav-toggle { display: block; }
+  }
+</style>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav?.classList.toggle('scrolled', window.scrollY > 50);
+  });
+  document.querySelector('.nav-toggle')?.addEventListener('click', () => {
+    document.querySelector('.nav-links')?.classList.toggle('open');
+  });
+</script>
