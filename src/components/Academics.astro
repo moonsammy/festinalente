@@ -1,11 +1,16 @@
 ---
 const apCourses = [
-  { name: "AP Computer Science", status: "Completed", score: "5" },
-  { name: "AP Physics", status: "In Progress" },
-  { name: "AP Pre-Calculus", status: "In Progress" },
-  { name: "AP US History", status: "In Progress" },
-  { name: "AP English Language & Composition", status: "In Progress" },
-  { name: "AP Statistics", status: "In Progress" },
+  { name: "AP Computer Science", status: "Completed", score: "5", year: "Sophomore" },
+  { name: "AP Physics", status: "In Progress", year: "Junior" },
+  { name: "AP Pre-Calculus", status: "In Progress", year: "Junior" },
+  { name: "AP US History", status: "In Progress", year: "Junior" },
+  { name: "AP English Language & Composition", status: "In Progress", year: "Junior" },
+  { name: "AP Statistics", status: "In Progress", year: "Junior" },
+  { name: "AP European History", status: "Planned", year: "Senior" },
+  { name: "AP English Literature and Composition", status: "Planned", year: "Senior" },
+  { name: "AP Calculus BC", status: "Planned", year: "Senior" },
+  { name: "AP Physics 2", status: "Planned", year: "Senior" },
+  { name: "AP Psychology", status: "Planned", year: "Senior" },
 ];
 ---
 <div class="section-divider"></div>
@@ -21,6 +26,29 @@ const apCourses = [
         <div class="overview-gpa">
           <span class="gpa-number">4.38</span>
           <span class="gpa-label">Weighted GPA</span>
+        </div>
+        <div class="overview-gpa act-scores">
+          <span class="test-tag">ACT</span>
+          <span class="gpa-number">33</span>
+          <span class="gpa-label">Composite</span>
+          <div class="act-breakdown">
+            <div class="act-subject">
+              <span class="act-subject-score">36</span>
+              <span class="act-subject-name">Science</span>
+            </div>
+            <div class="act-subject">
+              <span class="act-subject-score">36</span>
+              <span class="act-subject-name">Reading</span>
+            </div>
+            <div class="act-subject">
+              <span class="act-subject-score">35</span>
+              <span class="act-subject-name">English</span>
+            </div>
+            <div class="act-subject">
+              <span class="act-subject-score">29</span>
+              <span class="act-subject-name">Math</span>
+            </div>
+          </div>
         </div>
         <div class="honor-badge">
           <span class="honor-icon">&#9670;</span>
@@ -48,13 +76,13 @@ const apCourses = [
             {course.score && (
               <span class="course-score">Score: {course.score}</span>
             )}
-            <span class={`course-status ${course.status === 'Completed' ? 'status-done' : 'status-active'}`}>
+            <span class={`course-year year-${course.year?.toLowerCase()}`}>{course.year}</span>
+            <span class={`course-status ${course.status === 'Completed' ? 'status-done' : course.status === 'Planned' ? 'status-planned' : 'status-active'}`}>
               {course.status}
             </span>
           </li>
         ))}
       </ul>
-      <p class="courses-note">Additional AP coursework planned for senior year.</p>
     </div>
   </div>
 </section>
@@ -80,6 +108,25 @@ const apCourses = [
   .gpa-label {
     font-size: 0.65rem; letter-spacing: 0.2em;
     text-transform: uppercase; color: var(--text-muted); margin-top: 0.5rem;
+  }
+  .act-scores { position: relative; }
+  .test-tag {
+    position: absolute; top: 0.6rem; right: 0.75rem;
+    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); opacity: 0.7;
+  }
+  .act-breakdown {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem;
+    margin-top: 1rem; width: 100%;
+  }
+  .act-subject { display: flex; flex-direction: column; align-items: center; }
+  .act-subject-score {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 300; color: var(--cream); line-height: 1;
+  }
+  .act-subject-name {
+    font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-muted); margin-top: 0.2rem;
   }
   .honor-badge { display: flex; gap: 1rem; align-items: flex-start; }
   .honor-icon { color: var(--gold); font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
@@ -119,6 +166,26 @@ const apCourses = [
     text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 2px;
     background: rgba(76,175,80,0.1); color: #81c784;
     border: 1px solid rgba(76,175,80,0.25);
+  }
+  .course-year {
+    font-size: 0.65rem; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 2px;
+  }
+  .year-sophomore {
+    background: rgba(147,112,219,0.1); color: #b39ddb;
+    border: 1px solid rgba(147,112,219,0.25);
+  }
+  .year-junior {
+    background: rgba(41,182,246,0.08); color: #81d4fa;
+    border: 1px solid rgba(41,182,246,0.2);
+  }
+  .year-senior {
+    background: rgba(255,138,101,0.08); color: #ffab91;
+    border: 1px solid rgba(255,138,101,0.2);
+  }
+  .status-planned {
+    background: rgba(100,120,160,0.1); color: rgba(138,154,176,0.6);
+    border: 1px solid rgba(100,120,160,0.15);
   }
   .courses-note { margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); font-style: italic; }
   @media (max-width: 768px) { .academics-grid { grid-template-columns: 1fr; } }
